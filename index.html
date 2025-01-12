@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {background-color: burlywood;}
+        textarea {background-color: hotpink;}
+    </style>
+
+</head>
+<body>
+
+<h1>Capstone Project</h1>
+
+<form>
+  <p><label for="journalentry">Journal Entry:</label></p>
+  <textarea id="journalentry" name="journalentry" rows="8" cols="100">
+   dearest kitty, today i feel sad. my mummy forgot to pack me lunch. 
+   now i am hungry
+</textarea>
+
+</form>
+<button id="myBtn">Try it</button>
+
+<p id="demo">
+
+    <script>
+        const element = document.getElementById("myBtn");
+        element.addEventListener("click", myFunction);
+        
+        function myFunction() {
+          document.getElementById("demo").innerHTML = "Hello World";
+        }
+                </script>
+                
+
+</body>
+</html>
