@@ -25,7 +25,7 @@ This is the ASCS Capstone project. It is a simple web application built with Jav
    ```sh
    npm start
    ```
-    This will start the server at http://localhost:9000/.  
+    This will start the server at http://localhost:8080/.  
 
 ### Opening in GitHub Codespaces
 
