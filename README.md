@@ -5,6 +5,40 @@ This is the ASCS Capstone project. It is a simple web application built with Jav
 - **Demo Page**: [https://mattfors.github.io/ascs-capstone](https://mattfors.github.io/ascs-capstone)
 - **Presentation Page**: [https://mattfors.github.io/ascs-capstone/presentation/](https://mattfors.github.io/ascs-capstone/presentation/)
 
+## Roles and Responsibilities
+
+### Student
+- **Lead Developer**: Responsible for writing and maintaining the codebase.
+- **Product Owner**: Responsible for defining the project requirements and ensuring the final product meets these requirements.
+
+### Mentor
+- **DevOps**: Responsible for setting up and maintaining the development environment, including CI/CD pipelines.
+- **Project Manager**: Responsible for overseeing the project timeline, providing guidance, and ensuring the project stays on track.
+
+### Engineering Teacher
+- **Stakeholder**: Provides feedback on the project, ensures it meets educational goals, and evaluates the final product.
+
+## Release Stages
+
+### Pre-Alpha
+- **Description**: Initial development phase where core features are being implemented.
+- **Users**: Student and mentor for initial testing and feedback.
+- **Release Number**: `0.0.x`
+
+### Alpha
+- **Description**: Early testing phase where most features are implemented but may contain bugs.
+- **Users**: Mom, dad, sister, and teacher for focused testing and feedback.
+- **Release Number**: `0.x.0`
+
+### Beta
+- **Description**: Feature-complete phase where the application is tested for bugs and usability. Initial base features, including the journaling screen and journal entry review, are included while the daily tasks screen is being alpha tested.
+- **Users**: Select group of students, wider group of relatives, and friends for comprehensive testing.
+- **Release Number**: `x.0.0-beta`
+
+### Final Release
+- **Description**: Stable release ready for production use. Includes all features such as the journaling screen, journal entry review, daily tasks screen, and meditation timer.
+- **Users**: All intended users including students, mentors, and stakeholders.
+- **Release Number**: `x.0.0`
 
 ## Prerequisites
 
@@ -27,47 +61,3 @@ This is the ASCS Capstone project. It is a simple web application built with Jav
    ```
     This will start the server at http://localhost:8080/.  
 
-## Opening in GitHub Codespaces
-
-To open this project in GitHub Codespaces, follow these steps:
-
-1. **Navigate to the Repository**: Go to the GitHub repository for this project.
-
-2. **Open in Codespaces**:
-   - Click the green `Code` button.
-   - Select the `Codespaces` tab.
-   - Click `New codespace` to create a new Codespace for this repository.
-
-3. **Wait for Setup**: GitHub Codespaces will automatically set up the development environment based on the configuration in the `.devcontainer` directory.
-
-
-## Starting VS Code Live Share
-
-To start a Live Share session in VS Code, follow these steps:
-
-1. **Open the Project**: Open the project in VS Code.
-
-2. **Start Live Share Session**:
-   - Click on the Live Share icon in the status bar or use the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and type `Live Share: Start Collaboration Session`.
-   - A link will be generated. Share this link with your collaborators.
-
-3. **Join Live Share Session**:
-   - Collaborators can join the session by clicking on the link you shared. They will be able to edit and debug the code in real-time.
-
-You can now collaborate with others in real-time using VS Code Live Share.
-
-
-## Generating a QR Code
-To generate a QR code for a URL, use the scripts/generate-qr.js script. You need to provide both the URL and the output file path as parameters.  
-
-1. Install Dependencies:  
-   ```sh
-   npm install
-    ```
-   
-2. Generate QR Code:  
-`node scripts/generate-qr.js <URL> <output-file-path>`
-Example:  
-   ```sh
-   node scripts/generate-qr.js https://mattfors.github.io/ascs-capstone/ src/presentation/qr-code.png
-    ```

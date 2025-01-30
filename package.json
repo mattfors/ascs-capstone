@@ -1,7 +1,7 @@
 {
   "name": "ascs-capstone",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "ASCS Capstone Project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
