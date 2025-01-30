@@ -2,6 +2,10 @@
 
 This is the ASCS Capstone project. It is a simple web application built with JavaScript and Webpack.
 
+- **Demo Page**: [https://mattfors.github.io/ascs-capstone](https://mattfors.github.io/ascs-capstone)
+- **Presentation Page**: [https://mattfors.github.io/ascs-capstone/presentation/](https://mattfors.github.io/ascs-capstone/presentation/)
+
+
 ## Prerequisites
 
 - Node.js (version 20 or later)
