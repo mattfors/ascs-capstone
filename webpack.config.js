@@ -38,7 +38,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'src/presentation/qr-code.png', to: 'qr-code.png' }
+                { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' }
             ]
         })
     ],
