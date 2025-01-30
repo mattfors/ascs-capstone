@@ -27,7 +27,7 @@ This is the ASCS Capstone project. It is a simple web application built with Jav
    ```
     This will start the server at http://localhost:8080/.  
 
-### Opening in GitHub Codespaces
+## Opening in GitHub Codespaces
 
 To open this project in GitHub Codespaces, follow these steps:
 
@@ -41,7 +41,7 @@ To open this project in GitHub Codespaces, follow these steps:
 3. **Wait for Setup**: GitHub Codespaces will automatically set up the development environment based on the configuration in the `.devcontainer` directory.
 
 
-### Starting VS Code Live Share
+## Starting VS Code Live Share
 
 To start a Live Share session in VS Code, follow these steps:
 
@@ -57,7 +57,7 @@ To start a Live Share session in VS Code, follow these steps:
 You can now collaborate with others in real-time using VS Code Live Share.
 
 
-### Generating a QR Code
+## Generating a QR Code
 To generate a QR code for a URL, use the scripts/generate-qr.js script. You need to provide both the URL and the output file path as parameters.  
 
 1. Install Dependencies:  
