@@ -51,3 +51,19 @@ To start a Live Share session in VS Code, follow these steps:
    - Collaborators can join the session by clicking on the link you shared. They will be able to edit and debug the code in real-time.
 
 You can now collaborate with others in real-time using VS Code Live Share.
+
+
+### Generating a QR Code
+To generate a QR code for a URL, use the scripts/generate-qr.js script. You need to provide both the URL and the output file path as parameters.  
+
+1. Install Dependencies:  
+   ```sh
+   npm install
+    ```
+   
+2. Generate QR Code:  
+`node scripts/generate-qr.js <URL> <output-file-path>`
+Example:  
+   ```sh
+   node scripts/generate-qr.js https://mattfors.github.io/ascs-capstone/ src/presentation/qr-code.png
+    ```
