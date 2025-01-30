@@ -1,14 +1,15 @@
 {
   "name": "Node.js Development Container",
-  "dockerFile": "Dockerfile",
-  "context": "..",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:20",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "ms-vsliveshare.vsliveshare"
   ],
   "postCreateCommand": "npm install",
-  "remoteUser": "node"
+  "remoteUser": "node",
+  "forwardPorts": [8080]
 }
