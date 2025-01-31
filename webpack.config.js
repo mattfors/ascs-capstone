@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -15,7 +16,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'src/presentation.js')
             }
@@ -40,11 +41,16 @@ module.exports = {
             patterns: [
                 { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' }
             ]
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
     ],
     devServer: {
         static: path.join(__dirname, 'dist'),
         liveReload: true,
+        hot: true,
+        compress: true,
         watchFiles: ['src/**/*'],
     },
 };
