@@ -47,7 +47,7 @@ module.exports = (env, argv) => {
         template: './src/presentation/presentation.html',
         chunks: ['presentation'],
         filename: 'presentation/index.html',
-        base: isProd ? '/ascs-capstone/' : '/',
+        base: isProd ? '/ascs-capstone/presentation/' : '/presentation/',
       }),
       new CopyWebpackPlugin({
         patterns: [
