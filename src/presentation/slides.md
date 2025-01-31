@@ -20,15 +20,12 @@ ASCS Capstone Project Presentation
 
 # Project Technologies
 
-- **Markdown**: Formats text
-- **HTML**: Structures web pages
-- **CSS**: Styles web pages
-- **JavaScript & Node.js**: Adds interactivity and builds
+- **Markdown & HTML**: Formats text and structures web pages
+- **CSS & Tailwind CSS**: Styles
+- **JavaScript**: Adds interactivity
 - **MARP**: Creates presentations
 - **Git & GitHub**: Tracks and stores code online
-- **npm**: Manages Node.js packages
-- **Webpack**: Bundles JavaScript files
-
+- **npm, Webpack & Node.js**: Manages Node.js packages, bundles JavaScript files, and builds
 ---
 
 # Code Example

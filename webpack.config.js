@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: {
         main: './src/index.js',
-        presentation: './src/presentation.js'
+        presentation: './src/presentation/presentation.js'
     },
     module: {
         rules: [
@@ -18,7 +18,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
                 include: path.resolve(__dirname, 'src'),
-                exclude: path.resolve(__dirname, 'src/presentation.js')
+                exclude: path.resolve(__dirname, 'src/presentation/presentation.js')
             }
         ],
     },
@@ -33,7 +33,12 @@ module.exports = {
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
-            template: './src/presentation.html',
+            template: './src/about.html',
+            chunks: ['main'],
+            filename: 'about.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/presentation/presentation.html',
             chunks: ['presentation'],
             filename: 'presentation/index.html'
         }),
