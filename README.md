@@ -1,4 +1,13 @@
-# ASCS Capstone
+# <div style="display: flex; align-items: center;"><img src="./assets/ascs_logo.png" alt="Project Logo" width="75" height="75"> <span style="margin-left: 10px;">ASCS Capstone</span></div>
+
+
+[![codecov](https://codecov.io/github/mattfors/ascs-capstone/graph/badge.svg?token=AY0jpUc6VT)](https://codecov.io/github/mattfors/ascs-capstone)
+[![CI](https://github.com/mattfors/ascs-capstone/actions/workflows/deploy.yml/badge.svg)](https://github.com/mattfors/ascs-capstone/actions/workflows/deploy.yml)
+
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 This is the ASCS Capstone project. It is a simple web application built with JavaScript and Webpack.
 
