@@ -1,3 +1,5 @@
 import './styles.css';
 
-console.log('ASCS Capstone');
+export function hello() {
+    return 'hi';
+}
