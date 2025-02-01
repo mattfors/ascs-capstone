@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("ASCS Capstone")})();
+(()=>{"use strict"})();
