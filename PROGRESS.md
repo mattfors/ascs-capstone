@@ -8,12 +8,12 @@ Due: Week 1 Feb 2025
 - Student gets dev environment setup
 
 **Tasks:**
-- [x] Initial project repo setup
-- [ ] Student forks repo
-- [ ] Student gets GitHub Codespaces working
-- [ ] Student gets VS Code Live Share working
-- [ ] Student verifies dev server and app on their phone or browser
-- [ ] Student updates this markdown and commits to their repo
+- [x] Initial project repo setup 
+- [x] Student forks repo
+- [x] Student gets GitHub Codespaces working
+- [x] Student gets VS Code Live Share working
+- [x] Student verifies dev server and app on their phone or browser
+- [x] Student updates this markdown and commits to their repo
 
 ## Sprint 2: Journal
 Due: Feb 2025
