@@ -1,0 +1,6 @@
+coverage:
+  status:
+    project:
+      # We don't set a threshold, so no breaking or warning based on coverage
+      # Just track the coverage without any enforcement.
+      pass: false
