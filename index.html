@@ -2,7 +2,7 @@
         textarea {background-color: hotpink;}</style><base href="/ascs-capstone/"><script defer="defer" src="main.bundle.js"></script><link href="main.css" rel="stylesheet"></head><body><h1>Capstone Project</h1><form><p><label for="journalentry">Journal Entry:</label></p><textarea id="journalentry" name="journalentry" rows="8" cols="100">
    dearest kitty, today i feel sad. my mummy forgot to pack me lunch.
    now i am hungry
-</textarea></form><button id="myBtn" class="primary">Try it</button><p id="demo"><script>const element = document.getElementById("myBtn");
+</textarea></form><button id="myBtn" class="primary">Try it</button><div x-data="entryController"><label for="example">Entry:</label> <input id="example" x-model="data" placeholder="Enter text here"> <button class="primary" @click="addData(); message = 'Data saved!'">Save</button> <button class="primary" @click="message = getDataAsJson()">Load</button> <button class="primary" @click="clearData(); message = getDataAsJson(key)">Clear</button><p x-text="message"></p></div><p id="demo"><script>const element = document.getElementById("myBtn");
         element.addEventListener("click", myFunction);
 
         function myFunction() {
