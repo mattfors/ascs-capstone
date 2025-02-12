@@ -20,10 +20,9 @@ Due: Feb 2025
 **Deliverables:**
 - Journal and Journal review screens
 
-**Notes for mentor**
-- Determine if we introduce template engines now or later
 
 **Tasks:**
+- [ ] Complete homework assignment 1
 - [ ] Journal entry
   - [ ] Discuss local storage, array, objects and libraries with mentor
   - [ ] Using store.js library and an array, add new journal entry
