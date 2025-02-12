@@ -15,17 +15,16 @@
 </head>
 <body>
 
-<h1>Capstone Project</h1>
+<h1>Journal Entry</h1>
 
 <form>
-  <p><label for="journalentry">Journal Entry:</label></p>
+  <p><label for="journalentry">Whats on your mind? Start typing: </label></p>
   <textarea id="journalentry" name="journalentry" rows="8" cols="100">
-   dearest kitty, today i feel sad. my mummy forgot to pack me lunch.
-   now i am hungry
+ This is a test, start typing here:
 </textarea>
 
 </form>
-<button id="myBtn" class="primary">Try it</button>
+<button id="myBtn" class="primary">Save</button>
 
 <div x-data="entryController" >
     <label for="example">Entry:</label>
@@ -44,7 +43,7 @@
         element.addEventListener("click", myFunction);
 
         function myFunction() {
-          document.getElementById("demo").innerHTML = "Hello World";
+          document.getElementById("demo").innerHTML = "Saved!";
         }
                 </script>
 
