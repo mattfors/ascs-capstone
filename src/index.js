@@ -13,7 +13,9 @@ const entryController = {
 
     addData() {
         const currentValues = store.get(this.key) || [];
-        store.set(this.key, [...currentValues, this.data]);
+        store.set(this.key, [...currentValues, {
+            data: this.data, entryDate: new Date()
+        }]);
     },
 
     clearData() {
