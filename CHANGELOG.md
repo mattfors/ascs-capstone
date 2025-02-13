@@ -5,10 +5,14 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
-- Things added
+- Added the ability to save a journal entry
+- Added a category dropdown 
+- Added the ability to chose the time you journaled
+- Added ability to see the date of the journal entry
 
 ### Changed
-- Things changed
+- Changed colours and background
+- Changed the layout of the journal entry screen
 
 ### Fixed
 - Things fixed
