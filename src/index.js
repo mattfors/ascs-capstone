@@ -9,7 +9,7 @@ export function hello() {
 const entryController = {
     message: 'Hello, Data Entry!',
     data: '',
-    key: 'testing',
+    key: 'journal_entry',
 
     addData() {
         const currentValues = store.get(this.key) || [];
