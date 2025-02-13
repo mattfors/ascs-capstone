@@ -22,13 +22,13 @@ Due: Feb 2025
 
 
 **Tasks:**
-- [ ] Complete homework assignment 1
+- [x] Complete homework assignment 1
 - [ ] Journal entry
-  - [ ] Discuss local storage, array, objects and libraries with mentor
-  - [ ] Using store.js library and an array, add new journal entry
-  - [ ] Verify new journal entry in Chrome dev tools local storage
-  - [ ] Add a timestamp property to journal entry
-  - [ ] Add category property and drop down to screen, save to entry. As discussed in design meeting, categories would be: [Dream, Journal, Conversation, ...].
+  - [x] Discuss local storage, array, objects and libraries with mentor
+  - [x] Using store.js library and an array, add new journal entry
+  - [x] Verify new journal entry in Chrome dev tools local storage
+  - [x] Add a timestamp property to journal entry
+  - [ ] Add category property and drop down to screen, save to entry. As discussed in design meeting, categories would be: [Dream, Journal, Conversation, ...]
 - [ ] Journal review
   - [ ] Add new page
   - [ ] Discuss array indexes with mentor

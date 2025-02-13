@@ -15,39 +15,22 @@
 </head>
 <body>
 
-<h1>Capstone Project</h1>
+<h1>Journal Entry</h1>
 
-<form>
-  <p><label for="journalentry">Journal Entry:</label></p>
-  <textarea id="journalentry" name="journalentry" rows="8" cols="100">
-   dearest kitty, today i feel sad. my mummy forgot to pack me lunch.
-   now i am hungry
+<form x-data="entryController">
+    <select x-model="category" name="categories" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option value="goodDay">Good Day</option>
+        <option value="badDay">Bad Day</option>
+        <option value="mediumDay">Medium Day</option>
+        <option value="dreams">Dreams</option>
+      </select>
+      <input type="time" id="time" class="bg-gray-50 border leading-none border-gray-300 text-grey-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
+  <p><label for="journalentry">Whats on your mind? Start typing: </label></p>
+  <textarea id="journalentry" name="journalentry" rows="8" cols="100" x-model="data">
+ This is a test, start typing here:
 </textarea>
-
+<button id="myBtn" class="primary" @click="addData()">Save</button>
 </form>
-<button id="myBtn" class="primary">Try it</button>
-
-<div x-data="entryController" >
-    <label for="example">Entry:</label>
-    <input id="example" type="text" x-model="data" placeholder="Enter text here">
-    <button class="primary" @click="addData(); message = 'Data saved!'">Save</button>
-    <button class="primary" @click="message = getDataAsJson()">Load</button>
-    <button class="primary" @click="clearData(); message = getDataAsJson(key)">Clear</button>
-    <p x-text="message"></p>
-</div>
-
-
-<p id="demo">
-
-    <script>
-        const element = document.getElementById("myBtn");
-        element.addEventListener("click", myFunction);
-
-        function myFunction() {
-          document.getElementById("demo").innerHTML = "Hello World";
-        }
-                </script>
-
 
 <nav class="fixed-bottom-bar">
     <div class="button-container">

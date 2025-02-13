@@ -9,11 +9,16 @@ export function hello() {
 const entryController = {
     message: 'Hello, Data Entry!',
     data: '',
-    key: 'testing',
+    category: '',
+    key: 'journal_entry',
 
     addData() {
         const currentValues = store.get(this.key) || [];
-        store.set(this.key, [...currentValues, this.data]);
+        store.set(this.key, [...currentValues, {
+            data: this.data,
+            entryDate: new Date(),
+            category: this.category,
+        }]);
     },
 
     clearData() {
