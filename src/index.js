@@ -9,12 +9,15 @@ export function hello() {
 const entryController = {
     message: 'Hello, Data Entry!',
     data: '',
+    category: '',
     key: 'journal_entry',
 
     addData() {
         const currentValues = store.get(this.key) || [];
         store.set(this.key, [...currentValues, {
-            data: this.data, entryDate: new Date()
+            data: this.data,
+            entryDate: new Date(),
+            category: this.category,
         }]);
     },
 

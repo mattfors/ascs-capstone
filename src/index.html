@@ -18,6 +18,12 @@
 <h1>Journal Entry</h1>
 
 <form x-data="entryController">
+    <select x-model="category" name="cars" id="cars" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
   <p><label for="journalentry">Whats on your mind? Start typing: </label></p>
   <textarea id="journalentry" name="journalentry" rows="8" cols="100" x-model="data">
  This is a test, start typing here:
