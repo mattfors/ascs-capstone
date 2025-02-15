@@ -33,7 +33,6 @@ const entryController = {
 
 // Registering the Alpine component
 document.addEventListener('alpine:init', () => {
-    console.log('alpine init');
     Alpine.data('entryController', () => entryController);
 });
 
