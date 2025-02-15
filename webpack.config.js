@@ -20,6 +20,13 @@ module.exports = (env, argv) => {
           use: 'raw-loader',
         },
         {
+          test: /\.hbs$/,
+          loader: 'handlebars-loader',
+          options: {
+            partialDirs: [path.join(__dirname, 'src/partials')]
+          }
+        },
+        {
           test: /\.css$/,
           use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
           include: path.resolve(__dirname, 'src'),
@@ -43,13 +50,13 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './src/index.hbs',
         chunks: ['main'],
         filename: 'index.html',
         base: isProd ? '/ascs-capstone/' : '/',
       }),
       new HtmlWebpackPlugin({
-        template: './src/about.html',
+        template: './src/about.hbs',
         chunks: ['main'],
         filename: 'about.html',
         base: isProd ? '/ascs-capstone/' : '/',
@@ -61,7 +68,7 @@ module.exports = (env, argv) => {
         base: isProd ? '/ascs-capstone/presentation/' : '/presentation/',
       }),
       new HtmlWebpackPlugin({
-        template: './src/entry.html',
+        template: './src/entry.hbs',
         chunks: ['entry'],
         filename: 'entry.html',
         base: isProd ? '/ascs-capstone/' : '/',

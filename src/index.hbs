@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Project</title>
+    {{#if base}}
+        <base href="{{base}}">
+    {{/if}}
+</head>
+<body>
+
+<h1>Journal Entry</h1>
+
+<form x-data="entryController">
+    <select x-model="category" name="categories" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option value="goodDay">Good Day</option>
+        <option value="badDay">Bad Day</option>
+        <option value="mediumDay">Medium Day</option>
+        <option value="dreams">Dreams</option>
+      </select>
+      <input type="time" id="time" class="bg-gray-50 border leading-none border-gray-300 text-grey-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
+  <p><label for="journalentry">Whats on your mind? Start typing: </label></p>
+  <textarea id="journalentry" name="journalentry" rows="8" cols="100" x-model="data">
+ This is a test, start typing here:
+</textarea>
+<button id="myBtn" class="primary" @click="addData()">Save</button>
+</form>
+{{> navbar}}
+
+
+</body>
+</html>

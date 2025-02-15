@@ -7,37 +7,33 @@ const pizzaRecipes = [
     { category: 'BBQ Chicken', entryDate: '2023-10-03', toppings: 'Chicken, Red Onions, Cilantro', sauce: 'BBQ', description: 'BBQ Chicken pizza with red onions and cilantro' }
 ];
 
-const entryViewer = createEntryViewer(pizzaRecipes);
+const entryViewer = {
+    entry: {},
+    entryId: 0,
 
-function createEntryViewer(entries) {
-    return {
-        entry: {},
-        entryId: 0,
-        entries: entries,
+    init() {
+        this.loadEntry();
+    },
 
-        init() {
+    loadEntry() {
+        this.entry = pizzaRecipes[this.entryId];
+    },
+
+    prevEntry() {
+        if (this.entryId > 0) {
+            this.entryId--;
             this.loadEntry();
-        },
-
-        loadEntry() {
-            this.entry = this.entries[this.entryId];
-        },
-
-        prevEntry() {
-            if (this.entryId > 0) {
-                this.entryId--;
-                this.loadEntry();
-            }
-        },
-
-        nextEntry() {
-            if (this.entryId < this.entries.length - 1) {
-                this.entryId++;
-                this.loadEntry();
-            }
         }
-    };
-}
+    },
+
+    nextEntry() {
+        if (this.entryId < pizzaRecipes.length - 1) {
+            this.entryId++;
+            this.loadEntry();
+        }
+    }
+};
+
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('entryViewer', () => entryViewer);
