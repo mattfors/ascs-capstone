@@ -6,7 +6,10 @@ const { DefinePlugin } = require('webpack');
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
-
+  const commonTemplateParameters = {
+    production: isProd,
+    gaId: process.env.GA_ID || 'development'
+  };
   return {
     entry: {
       main: './src/index.js',
@@ -54,24 +57,28 @@ module.exports = (env, argv) => {
         chunks: ['main'],
         filename: 'index.html',
         base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
         template: './src/about.hbs',
         chunks: ['main'],
         filename: 'about.html',
         base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
         template: './src/presentation/presentation.html',
         chunks: ['presentation'],
         filename: 'presentation/index.html',
         base: isProd ? '/ascs-capstone/presentation/' : '/presentation/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
         template: './src/entry.hbs',
         chunks: ['entry'],
         filename: 'entry.html',
         base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new CopyWebpackPlugin({
         patterns: [
