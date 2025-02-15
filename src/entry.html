@@ -1,0 +1,31 @@
+<!-- src/entry.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Viewer</title>
+</head>
+<body x-data="entryViewer">
+
+<div class="flex justify-between mt-4">
+    <button @click="prevEntry()" class="primary">Previous</button>
+    <button @click="nextEntry()" class="primary">Next</button>
+</div>
+
+<div class="entry-container">
+    <div x-show="entry">
+        <div x-text="entry.category"></div>
+        <div x-text="new Date(entry.entryDate).toLocaleString()"></div>
+        <div x-text="entry.toppings"></div>
+        <div x-text="entry.sauce"></div>
+        <div x-text="entry.description"></div>
+    </div>
+    <div x-show="!entry">
+        <p>Entry not found</p>
+    </div>
+</div>
+
+
+</body>
+</html>

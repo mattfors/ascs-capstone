@@ -10,6 +10,7 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: './src/index.js',
+      entry: './src/entry.js',
       presentation: './src/presentation/presentation.js'
     },
     module: {
@@ -58,6 +59,12 @@ module.exports = (env, argv) => {
         chunks: ['presentation'],
         filename: 'presentation/index.html',
         base: isProd ? '/ascs-capstone/presentation/' : '/presentation/',
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/entry.html',
+        chunks: ['entry'],
+        filename: 'entry.html',
+        base: isProd ? '/ascs-capstone/' : '/',
       }),
       new CopyWebpackPlugin({
         patterns: [
