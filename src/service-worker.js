@@ -1,13 +1,13 @@
 const CACHE_NAME = 'capstone-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/entry.html',
-  '/about.html',
-  '/assets/manifest.json',
-  '/assets/favicon.ico',
-  '/main.bundle.js',
-  '/main.css'
+  '',
+  'index.html',
+  'entry.html',
+  'about.html',
+  'assets/manifest.json',
+  'assets/favicon.ico',
+  'main.bundle.js',
+  'main.css'
 ];
 
 self.addEventListener('install', event => {
