@@ -82,7 +82,9 @@ module.exports = (env, argv) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' }
+          { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' },
+          { from: 'assets', to: 'assets' },
+          { from: 'src/service-worker.js', to: 'service-worker.js' }
         ]
       }),
       new MiniCssExtractPlugin({
@@ -98,6 +100,11 @@ module.exports = (env, argv) => {
       hot: true,
       compress: true,
       watchFiles: ['src/**/*'],
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+      }
     },
   };
 };
