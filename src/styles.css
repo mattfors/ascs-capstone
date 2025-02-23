@@ -35,7 +35,7 @@ h1 {
 }
 
 .button-container {
-    @apply grid h-full max-w-lg grid-cols-2 mx-auto font-medium;
+    @apply grid h-full max-w-lg grid-cols-3 mx-auto font-medium;
 }
 
 .button-group {

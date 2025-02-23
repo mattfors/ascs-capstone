@@ -6,10 +6,14 @@ const { DefinePlugin } = require('webpack');
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
-
+  const commonTemplateParameters = {
+    production: isProd,
+    gaId: process.env.GA_ID || 'development'
+  };
   return {
     entry: {
       main: './src/index.js',
+      entry: './src/entry.js',
       presentation: './src/presentation/presentation.js'
     },
     module: {
@@ -17,6 +21,13 @@ module.exports = (env, argv) => {
         {
           test: /\.md$/,
           use: 'raw-loader',
+        },
+        {
+          test: /\.hbs$/,
+          loader: 'handlebars-loader',
+          options: {
+            partialDirs: [path.join(__dirname, 'src/partials')]
+          }
         },
         {
           test: /\.css$/,
@@ -42,26 +53,38 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './src/index.hbs',
         chunks: ['main'],
         filename: 'index.html',
         base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
-        template: './src/about.html',
+        template: './src/about.hbs',
         chunks: ['main'],
         filename: 'about.html',
         base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
         template: './src/presentation/presentation.html',
         chunks: ['presentation'],
         filename: 'presentation/index.html',
         base: isProd ? '/ascs-capstone/presentation/' : '/presentation/',
+        templateParameters: { ...commonTemplateParameters }
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/entry.hbs',
+        chunks: ['entry'],
+        filename: 'entry.html',
+        base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' }
+          { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' },
+          { from: 'assets', to: 'assets' },
+          { from: 'src/service-worker.js', to: 'service-worker.js' }
         ]
       }),
       new MiniCssExtractPlugin({
@@ -77,6 +100,11 @@ module.exports = (env, argv) => {
       hot: true,
       compress: true,
       watchFiles: ['src/**/*'],
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+      }
     },
   };
 };

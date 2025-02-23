@@ -36,6 +36,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          GA_ID: ${{ secrets.GA_ID }}
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
