@@ -16,17 +16,6 @@
 <h1>Journal Entry</h1>
 
 <form x-data="entryController">
-    <div x-show="journalEntries.length > 0">
-    <h2 x-text="entry.category"></h2>
-    <p><strong>Date:</strong> <span x-text="entry.entryDate"></span></p>
-    <p><strong>Time:</strong> <span x-text="entry.time"></span></p>
-    <p><strong>Entry:</strong></p>
-    <p x-text="entry.data"></p>
-
-    <button @click="prevEntry()" :disabled="entryId === 0">Previous</button>
-    <button @click="nextEntry()" :disabled="entryId === journalEntries.length - 1">Next</button>
-</div>
-
     <select x-model="category" name="categories" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="goodDay">Good Day</option>
         <option value="badDay">Bad Day</option>
@@ -38,70 +27,10 @@
   <textarea id="journalentry" name="journalentry" rows="8" cols="100" x-model="data">
  This is a test, start typing here:
 </textarea>
-<button id="myBtn" class="primary" @click="addData()" type="button">Save</button>
+<button id="myBtn" class="primary" @click="addData()">Save</button>
 </form>
 {{> navbar}}
 
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('entryController', () => ({
-            entryId: 0, // Tracks the current entry index
-            journalEntries: JSON.parse(localStorage.getItem('journalEntries')) || [],
-            entry: {}, // Stores the currently viewed journal entry
-            data: '',
-            time: '00:00',
-
-            init() {
-                this.loadEntry();
-            },
-
-            loadEntry() {
-                if (this.journalEntries.length > 0) {
-                    this.entry = this.journalEntries[this.entryId];
-                     this.data = this.entry.data; 
-                     this.time = this.entry.time; 
-                } else {
-                    this.entry = { category: '', entryDate: '', data: 'No entries yet!' };
-                    this.data = ''; 
-                    this.time = '00:00'; 
-                }
-            },
-
-            prevEntry() {
-                if (this.entryId > 0) {
-                    this.entryId--;
-                    this.loadEntry();
-                }
-            },
-
-            nextEntry() {
-                if (this.entryId < this.journalEntries.length - 1) {
-                    this.entryId++;
-                    this.loadEntry();
-                }
-            },
-
-            addData() {
-                const entryText = document.getElementById('journalentry').value;
-                const category = document.getElementById('categories').value;
-                <input type="time" id="time" x-model="time" class="bg-gray-50 border leading-none border-gray-300 text-grey-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" required />
-                
-                const newEntry = {
-                    category: category,
-                    entryDate: new Date().toISOString().split('T')[0], // Gets today's date
-                    time: entryTime,
-                    data: entryText
-                };
-
-                this.journalEntries.push(newEntry);
-                localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
-
-                this.entryId = this.journalEntries.length - 1; // Move to the latest entry
-                this.loadEntry();
-            }
-        }));
-    });
-</script>
 
 </body>
 </html>
