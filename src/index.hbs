@@ -15,36 +15,6 @@
 
 <h1>Journal Entry</h1>
 
-<form x-data="{
-    journalEntrees: [
-        { category: 'Good Day', entryDate: '2025-2-24', time: '1:10AM', description: 'Today was a good day…' },
-        { category: 'Bad Day', entryDate: '2025-2-25', time: '1:12AM', description: 'Today was a bad day…' },
-        { category: 'Medium Day', entryDate: '2025-2-26', time: '1:15AM', description: 'Today was pretty medium…' },
-        { category: 'Dreams', entryDate: '2025-2-27', time: '1:17AM', description: 'Last night I dreamed about…' }
-    ],
-    entryId: 0,
-    entry: {},
-    init() {
-        this.loadEntry();
-    },
-    loadEntry() {
-        this.entry = this.journalEntrees[this.entryId];
-    },
-    prevEntry() {
-        if (this.entryId > 0) {
-            this.entryId--;
-            this.loadEntry();
-        }
-    },
-    nextEntry() {
-        if (this.entryId < this.journalEntrees.length - 1) {
-            this.entryId++;
-            this.loadEntry();
-        }
-    },
-    
-}">
-
     <select x-model="category" name="categories" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="Good Day">Good Day</option>
         <option value="Bad Day">Bad Day</option>
