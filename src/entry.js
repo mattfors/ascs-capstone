@@ -2,9 +2,9 @@ import './styles.css';
 import Alpine from 'alpinejs';
 
 const pizzaRecipes = [
-    { category: 'Margherita', entryDate: '2023-10-01', toppings: 'Mozzarella, Basil', sauce: 'Tomato', description: 'Classic Margherita pizza' },
-    { category: 'Pepperoni', entryDate: '2023-10-02', toppings: 'Mozzarella, Pepperoni', sauce: 'Tomato', description: 'Pepperoni pizza with tomato sauce' },
-    { category: 'BBQ Chicken', entryDate: '2023-10-03', toppings: 'Chicken, Red Onions, Cilantro', sauce: 'BBQ', description: 'BBQ Chicken pizza with red onions and cilantro' }
+    { category: 'Good Day', entryDate: '2023-10-01', time: '10:45PM', description: 'Today was a good day...' },
+    { category: 'Bad Day', entryDate: '2023-10-02', time: '11:22PM', description: 'Today was a bad day...' },
+    { category: 'Medium Day', entryDate: '2023-10-03', time: '10:12PM', description: 'Today was in the middle...' }
 ];
 
 const entryViewer = {
