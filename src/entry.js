@@ -1,7 +1,7 @@
 import './styles.css';
 import Alpine from 'alpinejs';
 
-const pizzaRecipes = [
+const journalEntrees = [
     { category: 'Good Day', entryDate: '2023-10-01', time: '10:45PM', description: 'Today was a good day...' },
     { category: 'Bad Day', entryDate: '2023-10-02', time: '11:22PM', description: 'Today was a bad day...' },
     { category: 'Medium Day', entryDate: '2023-10-03', time: '10:12PM', description: 'Today was in the middle...' }
@@ -16,7 +16,7 @@ const entryViewer = {
     },
 
     loadEntry() {
-        this.entry = pizzaRecipes[this.entryId];
+        this.entry = journalEntrees[this.entryId];
     },
 
     prevEntry() {
@@ -27,7 +27,7 @@ const entryViewer = {
     },
 
     nextEntry() {
-        if (this.entryId < pizzaRecipes.length - 1) {
+        if (this.entryId < journalEntrees.length - 1) {
             this.entryId++;
             this.loadEntry();
         }
