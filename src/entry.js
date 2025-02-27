@@ -1,13 +1,13 @@
 import './styles.css';
 import Alpine from 'alpinejs';
 
-const pizzaRecipes = [
-    { category: 'Margherita', entryDate: '2023-10-01', toppings: 'Mozzarella, Basil', sauce: 'Tomato', description: 'Classic Margherita pizza' },
-    { category: 'Pepperoni', entryDate: '2023-10-02', toppings: 'Mozzarella, Pepperoni', sauce: 'Tomato', description: 'Pepperoni pizza with tomato sauce' },
-    { category: 'BBQ Chicken', entryDate: '2023-10-03', toppings: 'Chicken, Red Onions, Cilantro', sauce: 'BBQ', description: 'BBQ Chicken pizza with red onions and cilantro' }
-];
-
 const entryViewer = {
+    journalEntrees: [
+        { category: 'Good Day', entryDate: '2025-2-24', time: '1:10AM', description: 'Today was a good day…' },
+        { category: 'Bad Day', entryDate: '2025-2-25', time: '1:12AM', description: 'Today was a bad day…' },
+        { category: 'Medium Day', entryDate: '2025-2-26', time: '1:15AM', description: 'Today was pretty medium…' },
+        { category: 'Dreams', entryDate: '2025-2-27', time: '1:17AM', description: 'Last night I dreamed about…' }
+    ],
     entry: {},
     entryId: 0,
 
@@ -16,7 +16,7 @@ const entryViewer = {
     },
 
     loadEntry() {
-        this.entry = pizzaRecipes[this.entryId];
+        this.entry = this.journalEntrees[this.entryId];
     },
 
     prevEntry() {
@@ -27,7 +27,7 @@ const entryViewer = {
     },
 
     nextEntry() {
-        if (this.entryId < pizzaRecipes.length - 1) {
+        if (this.entryId < this.journalEntrees.length - 1) {
             this.entryId++;
             this.loadEntry();
         }
