@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entry Viewer</title>
+    <title>My Journal</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="assets/manifest.json">
     {{#if base}}
@@ -12,16 +12,15 @@
     {{> analytics}}
 </head>
 <body x-data="entryViewer">
-<h1>Entry Viewer</h1>
-<div class="flex justify-between mt-4">
-    <button @click="prevEntry()" class="primary">Previous</button>
-    <button @click="nextEntry()" class="primary">Next</button>
+<div class="flex justify-between items-center w-full mb-4">
+    <button @click="prevEntry()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&lt;</button>
+    <div class="text-sm text-gray-600 dark:text-gray-400" x-text="new Date(entry.entryDate).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, month: 'short', day: 'numeric', year: 'numeric' })"></div>
+    <button @click="nextEntry()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&gt;</button>
 </div>
 
 <div>
     <div x-show="entry">
         <div x-text="entry.category"></div>
-        <div x-text="new Date(entry.entryDate).toLocaleString()"></div>
         <div x-text="entry.data"></div>
     </div>
     <div x-show="!entry">

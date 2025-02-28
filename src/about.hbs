@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>ASCS Journal</title>
+    <meta name="version" content="{{version}}">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="assets/manifest.json">
     {{#if base}}
@@ -12,9 +13,14 @@
     {{> analytics}}
 </head>
 <body>
-<h1>About</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p><a href="presentation" class="text-blue-500 hover:text-blue-700 underline">Go to Presentation</a></p>
+<h1>ASCS Journal</h1>
+Welcome to our Journaling App! This app was created as part of the ASCS Capstone Engineering Project to help people express themselves, stay organized, and track their personal growth.
+<div class="flex justify-center items-center">
+    <img src="assets/qr-code.png" alt="Share">
+</div>
+<div class="text-center mt-4">
+    <span class="text-sm text-gray-600 dark:text-gray-400">Version: {{version}}</span>
+</div>
 {{> navbar}}
 </body>
 </html>

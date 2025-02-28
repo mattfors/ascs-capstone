@@ -3,12 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { DefinePlugin } = require('webpack');
+const packageJson = require('./package.json');
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
   const commonTemplateParameters = {
     production: isProd,
-    gaId: process.env.GA_ID || 'development'
+    gaId: process.env.GA_ID || 'development',
+    version: packageJson.version
   };
   return {
     entry: {
