@@ -22,8 +22,7 @@
     <div x-show="entry">
         <div x-text="entry.category"></div>
         <div x-text="new Date(entry.entryDate).toLocaleString()"></div>
-        <div x-text="entry.time"></div>
-        <div x-text="entry.description"></div>
+        <div x-text="entry.data"></div>
     </div>
     <div x-show="!entry">
         <p>Entry not found</p>
