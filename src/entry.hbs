@@ -14,19 +14,14 @@
 </head>
 <body x-data="entryViewer">
 <div class="flex justify-between items-center w-full mb-4">
-    <button @click="prevEntry()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&lt;</button>
+    <button @click="prevEntry()" :disabled="isPrevDisabled" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed">&lt;</button>
     <div class="text-sm text-gray-600 dark:text-gray-400" x-text="new Date(entry.entryDate).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, month: 'short', day: 'numeric', year: 'numeric' })"></div>
-    <button @click="nextEntry()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&gt;</button>
+    <button @click="nextEntry()" :disabled="isNextDisabled" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed">&gt;</button>
 </div>
 
-<div>
-    <div x-show="entry">
-        <div x-text="entry.category"></div>
-        <div x-text="entry.data"></div>
-    </div>
-    <div x-show="!entry">
-        <p>Entry not found</p>
-    </div>
+<div x-show="entry" class="p-4 bg-white dark:bg-gray-800 rounded shadow-md">
+    <div class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2" x-text="entry.category"></div>
+    <div class="text-gray-700 dark:text-gray-300" x-text="entry.data"></div>
 </div>
 {{> navbar}}
 </body>
