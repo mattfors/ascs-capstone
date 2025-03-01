@@ -1,28 +1,31 @@
 import './styles.css';
 import Alpine from 'alpinejs';
+import store from 'storejs';
 
-const journalEntrees = [
-    { category: 'Good Day', entryDate: '2023-10-01', time: '10:45PM', description: 'Today was a good day...' },
-    { category: 'Bad Day', entryDate: '2023-10-02', time: '11:22PM', description: 'Today was a bad day...' },
-    { category: 'Medium Day', entryDate: '2023-10-03', time: '10:12PM', description: 'Today was in the middle...' }
-];
-
+const journalEntrees = store.get('journal_entry') || [];
 const entryViewer = {
     entry: {},
     entryId: 0,
+    isPrevDisabled: true,
+    isNextDisabled: journalEntrees.length <= 1,
 
     init() {
         this.loadEntry();
+        this.updateButtonStates();
     },
 
     loadEntry() {
-        this.entry = journalEntrees[this.entryId];
+        this.entry = journalEntrees[this.entryId] || {
+            data: 'It’s quiet in here... Let’s make some memories with your first entry!',
+            entryDate: new Date()
+        };
     },
 
     prevEntry() {
         if (this.entryId > 0) {
             this.entryId--;
             this.loadEntry();
+            this.updateButtonStates();
         }
     },
 
@@ -30,7 +33,13 @@ const entryViewer = {
         if (this.entryId < journalEntrees.length - 1) {
             this.entryId++;
             this.loadEntry();
+            this.updateButtonStates();
         }
+    },
+
+    updateButtonStates() {
+        this.isPrevDisabled = this.entryId === 0;
+        this.isNextDisabled = this.entryId === journalEntrees.length - 1 || journalEntrees.length === 0;
     }
 };
 

@@ -2,8 +2,9 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entry Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>My Journal</title>
+    <meta name="version" content="{{version}}">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="assets/manifest.json">
     {{#if base}}
@@ -12,22 +13,15 @@
     {{> analytics}}
 </head>
 <body x-data="entryViewer">
-<h1>Entry Viewer</h1>
-<div class="flex justify-between mt-4">
-    <button @click="prevEntry()" class="primary">Previous</button>
-    <button @click="nextEntry()" class="primary">Next</button>
+<div class="flex justify-between items-center w-full mb-4">
+    <button @click="prevEntry()" :disabled="isPrevDisabled" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed">&lt;</button>
+    <div class="text-sm text-gray-600 dark:text-gray-400" x-text="new Date(entry.entryDate).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, month: 'short', day: 'numeric', year: 'numeric' })"></div>
+    <button @click="nextEntry()" :disabled="isNextDisabled" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed">&gt;</button>
 </div>
 
-<div>
-    <div x-show="entry">
-        <div x-text="entry.category"></div>
-        <div x-text="new Date(entry.entryDate).toLocaleString()"></div>
-        <div x-text="entry.time"></div>
-        <div x-text="entry.description"></div>
-    </div>
-    <div x-show="!entry">
-        <p>Entry not found</p>
-    </div>
+<div x-show="entry" class="p-4 bg-white dark:bg-gray-800 rounded shadow-md">
+    <div class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2" x-text="entry.category"></div>
+    <div class="text-gray-700 dark:text-gray-300" x-text="entry.data"></div>
 </div>
 {{> navbar}}
 </body>
