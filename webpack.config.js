@@ -105,7 +105,7 @@ module.exports = (env, argv) => {
         ]
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].css',
+        filename: '[name].[contenthash].css',
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode),
