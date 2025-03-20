@@ -17,6 +17,8 @@ const entryViewer = {
     loadEntry() {
         this.entry = journalEntrees[this.entryId] || {
             data: 'It’s quiet in here... Let’s make some memories with your first entry!',
+            mood: '🤔',
+            category: 'Hm...',
             entryDate: new Date()
         };
     },

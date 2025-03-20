@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ASCS Journal</title>
+    <title>Add Journal Entry</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="assets/manifest.json">
     <meta name="version" content="{{version}}">
@@ -12,22 +12,31 @@
     {{/if}}
     {{> analytics}}
 </head>
-<body>
-<form x-data="entryController">
-    <select x-model="category" name="categories" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        <option value="goodDay">Good Day</option>
-        <option value="badDay">Bad Day</option>
-        <option value="mediumDay">Medium Day</option>
-        <option value="dreams">Dreams</option>
-    </select>
-    <p><label for="journalentry">Whats on your mind? Start typing: </label></p>
-    <textarea id="journalentry" name="journalentry" rows="8" cols="100" x-model="data">
-</textarea>
-    <button id="myBtn" class="primary" @click="addData()">Save</button>
+<body class="flex flex-col h-screen overflow-hidden">
+<form x-data="entryController" class="flex flex-col flex-grow overflow-hidden pb-16" style="padding-bottom: 60px">
+    <div class="flex flex-wrap justify-between mb-4">
+        <button type="button" @click="mood = '😡'" :class="{'bg-blue-500 text-white': mood === '😡', 'border-2 border-gray-700 text-gray-700': mood !== '😡'}" class="flex-1 text-2xl p-2 m-1 rounded">😡</button>
+        <button type="button" @click="mood = '😢'" :class="{'bg-blue-500 text-white': mood === '😢', 'border-2 border-gray-700 text-gray-700': mood !== '😢'}" class="flex-1 text-2xl p-2 m-1 rounded">😢</button>
+        <button type="button" @click="mood = '☹️'" :class="{'bg-blue-500 text-white': mood === '☹️', 'border-2 border-gray-700 text-gray-700': mood !== '☹️'}" class="flex-1 text-2xl p-2 m-1 rounded">☹️</button>
+        <button type="button" @click="mood = '😐'" :class="{'bg-blue-500 text-white': mood === '😐', 'border-2 border-gray-700 text-gray-700': mood !== '😐'}" class="flex-1 text-2xl p-2 m-1 rounded">😐</button>
+        <button type="button" @click="mood = '😊'" :class="{'bg-blue-500 text-white': mood === '😊', 'border-2 border-gray-700 text-gray-700': mood !== '😊'}" class="flex-1 text-2xl p-2 m-1 rounded">😊</button>
+        <button type="button" @click="mood = '😴'" :class="{'bg-blue-500 text-white': mood === '😴', 'border-2 border-gray-700 text-gray-700': mood !== '😴'}" class="flex-1 text-2xl p-2 m-1 rounded">😴</button>
+    </div>
+
+    <div class="mb-4">
+        <label for="journalentry">
+            <select x-model="category" name="categories" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="Journal">📝 Journal</option>
+                <option value="Dreams">🛏️ Dreams</option>
+                <option value="Ideas">💡 Ideas</option>
+            </select>
+        </label>
+    </div>
+
+    <textarea id="journalentry" name="journalentry" rows="8" x-model="data" class="flex-grow mb-4 p-2 border border-gray-300 rounded-lg resize-none max-h-96"></textarea>
+
+    <button id="myBtn" class="primary self-end" @click="addData()">Save</button>
 </form>
 {{> navbar}}
-
-{{> navbar}}
-
 </body>
 </html>

@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { DefinePlugin } = require('webpack');
 const packageJson = require('./package.json');
+const {InjectManifest} = require("workbox-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
@@ -50,8 +51,9 @@ module.exports = (env, argv) => {
       ],
     },
     output: {
-      filename: '[name].bundle.js',
+      filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -65,6 +67,20 @@ module.exports = (env, argv) => {
         template: './src/about.hbs',
         chunks: ['main'],
         filename: 'about.html',
+        base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/qr.hbs',
+        chunks: ['main'],
+        filename: 'qr.html',
+        base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/phone.hbs',
+        chunks: ['main'],
+        filename: 'phone.html',
         base: isProd ? '/ascs-capstone/' : '/',
         templateParameters: { ...commonTemplateParameters }
       }),
@@ -90,11 +106,16 @@ module.exports = (env, argv) => {
         ]
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].css',
+        filename: '[name].[contenthash].css',
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode),
-      })
+      }),
+      ...(isProd ? [new InjectManifest({
+        swSrc: './src/service-worker.js',
+        swDest: 'service-worker.js',
+        mode: 'module'
+      })] : [])
     ],
     devServer: {
       static: path.join(__dirname, 'dist'),

@@ -20,7 +20,7 @@
 </div>
 
 <div x-show="entry" class="p-4 bg-white dark:bg-gray-800 rounded shadow-md">
-    <div class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2" x-text="entry.category"></div>
+<div class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2" x-text="entry.mood + ' ' + entry.category"></div>
     <div class="text-gray-700 dark:text-gray-300" x-text="entry.data"></div>
 </div>
 {{> navbar}}

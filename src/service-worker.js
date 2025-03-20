@@ -1,47 +1,32 @@
-const CACHE_NAME = 'capstone-cache-v1';
-const urlsToCache = [
-  '',
-  'index.html',
-  'entry.html',
-  'about.html',
-  'assets/manifest.json',
-  'assets/favicon.ico',
-  'main.bundle.js',
-  'main.css'
-];
+import { precacheAndRoute } from 'workbox-precaching';
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
+const CACHE_NAME = 'ascs-capstone-v1';
+
+precacheAndRoute(self.__WB_MANIFEST);
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      })
-  );
+event.respondWith(
+  caches.match(event.request)
+    .then(response => {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request);
+    })
+);
 });
 
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+const cacheWhitelist = [CACHE_NAME];
+event.waitUntil(
+  caches.keys().then(cacheNames => {
+    return Promise.all(
+      cacheNames.map(cacheName => {
+        if (!cacheWhitelist.includes(cacheName)) {
+          return caches.delete(cacheName);
+        }
+      })
+    );
+  })
+);
 });
