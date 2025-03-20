@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { DefinePlugin } = require('webpack');
 const packageJson = require('./package.json');
+const {InjectManifest} = require("workbox-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
@@ -109,6 +110,10 @@ module.exports = (env, argv) => {
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode),
+      }),
+      new InjectManifest({
+        swSrc: './src/service-worker.js',
+        swDest: 'service-worker.js',
       })
     ],
     devServer: {
