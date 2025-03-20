@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ASCS Journal</title>
+    <title>Share</title>
     <meta name="version" content="{{version}}">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="assets/manifest.json">
@@ -14,14 +14,13 @@
 </head>
 <body>
 <h1>ASCS Journal</h1>
-
-<p style="margin-bottom: 1em;">
-    Welcome to our Journaling App! This app was created as part of the ASCS Capstone Engineering Project to help people express themselves, stay organized, and track their personal growth.
-</p>
-
-<p>
-    Your information is stored locally on your device and is never shared with anyone.
-</p>
+Have your friends scan this QR code to share the app with them.
+<div class="flex justify-center items-center">
+    <img src="assets/qr-code.png" alt="Share">
+</div>
+<div class="text-center mt-4">
+    <span class="text-sm text-gray-600 dark:text-gray-400">Version: {{version}}</span>
+</div>
 {{> navbar}}
 </body>
 </html>

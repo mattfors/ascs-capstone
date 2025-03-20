@@ -69,6 +69,20 @@ module.exports = (env, argv) => {
         templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
+        template: './src/qr.hbs',
+        chunks: ['main'],
+        filename: 'qr.html',
+        base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/phone.hbs',
+        chunks: ['main'],
+        filename: 'phone.html',
+        base: isProd ? '/ascs-capstone/' : '/',
+        templateParameters: { ...commonTemplateParameters }
+      }),
+      new HtmlWebpackPlugin({
         template: './src/presentation/presentation.html',
         chunks: ['presentation'],
         filename: 'presentation/index.html',

@@ -10,6 +10,7 @@ const entryController = {
     message: 'Hello, Data Entry!',
     data: '',
     category: '',
+    mood: '',
     key: 'journal_entry',
 
     addData() {
@@ -18,6 +19,7 @@ const entryController = {
             data: this.data,
             entryDate: new Date(),
             category: this.category,
+            mood: this.mood
         }]);
     },
 
