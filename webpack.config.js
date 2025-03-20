@@ -50,8 +50,9 @@ module.exports = (env, argv) => {
       ],
     },
     output: {
-      filename: '[name].bundle.js',
+      filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
