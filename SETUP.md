@@ -40,5 +40,5 @@ To generate a QR code for a URL, use the scripts/generate-qr.js script. You need
    `node scripts/generate-qr.js <URL> <output-file-path>`
    Example:
    ```sh
-   node scripts/generate-qr.js https://mattfors.github.io/ascs-capstone/ src/presentation/qr-code.png
+   node scripts/generate-qr.js https://emilymarasco.github.io/ascs-capstone/about.html assets/qr-code.png
     ```
