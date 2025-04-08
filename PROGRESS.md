@@ -29,12 +29,12 @@ Due: Feb 2025
   - [x] Verify new journal entry in Chrome dev tools local storage
   - [x] Add a timestamp property to journal entry
   - [ ] Add category property and drop down to screen, save to entry. As discussed in design meeting, categories would be: [Dream, Journal, Conversation, ...]
-- [ ] Journal review
-  - [ ] Add new page
-  - [ ] Discuss array indexes with mentor
-  - [ ] Display latest entry from local storage array
-  - [ ] Add a button to display previous index entry
-  - [ ] Add a button to display next index entry
+- [x] Journal review
+  - [x] Add new page
+  - [x] Discuss array indexes with mentor
+  - [x] Display latest entry from local storage array
+  - [x] Add a button to display previous index entry
+  - [x] Add a button to display next index entry
 
 ## Sprint 3: Task List
 Due: Feb 2025
@@ -42,7 +42,7 @@ Due: Feb 2025
 - Task list screen displaying generic task list
 
 **Tasks:**
-- [ ] Add new page
+- [] Add new page
 - [ ] Discuss with mentor random number generation
 - [ ] Logic for displaying today's list if not then randomly generated selection
 - [ ] Checkbox list for task list
