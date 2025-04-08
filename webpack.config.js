@@ -16,8 +16,7 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: './src/index.js',
-      entry: './src/entry.js',
-      presentation: './src/presentation/presentation.js'
+      entry: './src/entry.js'
     },
     module: {
       rules: [
@@ -85,13 +84,6 @@ module.exports = (env, argv) => {
         templateParameters: { ...commonTemplateParameters }
       }),
       new HtmlWebpackPlugin({
-        template: './src/presentation/presentation.html',
-        chunks: ['presentation'],
-        filename: 'presentation/index.html',
-        base: isProd ? '/ascs-capstone/presentation/' : '/presentation/',
-        templateParameters: { ...commonTemplateParameters }
-      }),
-      new HtmlWebpackPlugin({
         template: './src/entry.hbs',
         chunks: ['entry'],
         filename: 'entry.html',
@@ -100,7 +92,6 @@ module.exports = (env, argv) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'src/presentation/qr-code.png', to: 'presentation/qr-code.png' },
           { from: 'assets', to: 'assets' },
           { from: 'src/service-worker.js', to: 'service-worker.js' }
         ]

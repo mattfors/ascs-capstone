@@ -9,7 +9,7 @@ export function hello() {
 const entryController = {
     message: 'Hello, Data Entry!',
     data: '',
-    category: '',
+    category: 'Journal',
     mood: '',
     key: 'journal_entry',
 
