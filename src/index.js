@@ -1,6 +1,7 @@
 import './styles.css';
 import Alpine from 'alpinejs';
 import store from 'storejs';
+import analytics from './analytics';
 
 export function hello() {
     return 'hi';
@@ -21,6 +22,12 @@ const entryController = {
             category: this.category,
             mood: this.mood
         }]);
+
+        analytics.track('add_entry', {
+            category: this.category,
+            mood: this.mood,
+            dataLength: this.data.length,
+        });
     },
 
     clearData() {

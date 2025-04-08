@@ -101,6 +101,7 @@ module.exports = (env, argv) => {
       }),
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode),
+        'gaId': JSON.stringify(commonTemplateParameters.gaId),
       }),
       ...(isProd ? [new InjectManifest({
         swSrc: './src/service-worker.js',

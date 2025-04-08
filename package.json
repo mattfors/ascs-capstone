@@ -42,6 +42,8 @@
     "workbox-webpack-plugin": "^7.3.0"
   },
   "dependencies": {
+    "@analytics/core": "^0.12.17",
+    "@analytics/google-analytics": "^1.1.0",
     "alpinejs": "^3.14.8",
     "storejs": "^2.1.0",
     "workbox-precaching": "^7.3.0"
